@@ -1,0 +1,73 @@
+{% comment %} <!DOCTYPE html>
+<a href="{% url 'pag_principal' %}">Inicio</a>
+<a href="{% url 'usuario' %}">Usuarios</a>
+
+
+<html>
+<head>
+    <title>Página Principal</title>
+    <!-- Aquí puedes agregar tu CSS o enlazar a un archivo CSS externo -->
+</head>
+<body>
+    <header>
+        <h1>¡Bienvenido a nuestra página principal!</h1>
+    </header>
+    
+    <main>
+        <p>Esta es nuestra página principal. Aquí puedes agregar el contenido que quieras mostrar a tus visitantes.</p>
+    </main>
+</body>
+</html> {% endcomment %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Página de Inicio</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        nav {
+            margin: 15px 0;
+            text-align: center;
+        }
+        nav a {
+            margin: 0 10px;
+            color: #06f;
+            text-decoration: none;
+        }
+        nav a:hover {
+            color: #f30;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a Nuestra Página</h1>
+    </header>
+
+    <nav>
+        <a href="{% url 'pag_principal' %}">Inicio</a>
+        <a href="{% url 'usuario' %}">Usuarios</a>
+        <a href="#opcion3">Opción 3</a>
+    </nav>
+
+    <main>
+        <h2 id="opcion1">Opción 1</h2>
+        <p>Contenido de la opción 1.</p>
+
+        <h2 id="opcion2">Opción 2</h2>
+        <p>Contenido de la opción 2.</p>
+
+        <h2 id="opcion3">Opción 3</h2>
+        <p>Contenido de la opción 3.</p>
+    </main>
+</body>
+</html>
