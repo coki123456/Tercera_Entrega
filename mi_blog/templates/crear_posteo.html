@@ -43,15 +43,13 @@
 <body>
     <h1>Crear un nuevo post</h1>
 
-    <!-- Formulario para crear un nuevo post -->
-    <form id="crearPost">
-        <label for="titulo">Título:</label><br>
-        <input type="text" id="titulo" name="titulo"><br>
-        <label for="autor">Autor:</label><br>
-        <input type="text" id="autor" name="autor"><br>
-        <label for="texto">Texto:</label><br>
-        <textarea id="texto" name="texto"></textarea><br>
-        <input type="submit" value="Crear post">
+    <form action={% url "crear_posteo" %} method="POST">
+        {% csrf_token %}
+        <table>
+            {{formulario}}
+        </table>
+        
+        <input type="submit" value="Publicar Post">
     </form>
 </body>
 </html>

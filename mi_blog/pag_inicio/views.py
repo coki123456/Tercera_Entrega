@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Posteo
+from .forms import FormularioCreacionPost
 
 # Create your views here.
 def pag_principal(request):
@@ -11,12 +12,15 @@ def posteos(request):
     return render(request, 'posteos.html', {'posteos': post})
 
 def crear_posteo(request):
-    # if request.method == 'POST':
-    #     autor = request.POST['autor']
-    #     titulo = request.POST['titulo']
-    #     texto = request.POST['texto']
-    #     posteo = Posteo(autor=autor, titulo=titulo, texto=texto)
-    #     posteo.save()
-    #     return render(request, 'posteos.html', {'posteos': post})
-    # else:
-    return render(request, 'crear_posteo.html')
+    formulario = FormularioCreacionPost()
+    if request.method == "POST":
+        formulario = FormularioCreacionPost(request.POST)
+        if formulario.is_valid():
+            titulo = formulario.cleaned_data.get('titulo')
+            autor = formulario.cleaned_data.get('autor')
+            texto = formulario.cleaned_data.get('texto')
+            post = Posteo(titulo=titulo, autor=autor, texto=texto)
+            post.save()
+            return redirect("posteos")
+        
+    return render(request, 'crear_posteo.html', {'formulario': formulario})
