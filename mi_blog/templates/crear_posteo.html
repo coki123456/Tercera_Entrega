@@ -3,6 +3,60 @@
 <head>
     <title>Bienvenido al Blog</title>
     <style>
+        .miFormulario {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .miFormulario fieldset {
+            border: none;
+            margin-bottom: 20px;
+        }
+        
+        .miFormulario legend {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        
+        .campoFormulario {
+        margin-bottom: 10px;
+        }
+        
+        .campoFormulario label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .campoFormulario input,
+        .campoFormulario textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 1em;
+        }
+        
+        .botonEnviar {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        
+        .botonEnviar:hover {
+            background-color: #0056b3;
+        }
+        
         body {
             background-color: #f0f0f0;
             font-family: Arial, sans-serif;
@@ -23,9 +77,9 @@
             text-decoration: none;
         }
         nav a:hover {
-            color: #f30;
+        color: #f30;
         }
-    </style>
+    </style>    
 </head>
 <body>
     <header>
@@ -41,15 +95,28 @@
     <title>Crear un post</title>
 
 <body>
-    <h1>Crear un nuevo post</h1>
-
-    <form action={% url "crear_posteo" %} method="POST">
+    <form action="{% url 'crear_posteo' %}" method="POST" class="miFormulario">
         {% csrf_token %}
-        <table>
-            {{formulario}}
-        </table>
-        
-        <input type="submit" value="Publicar Post">
+        <fieldset>
+            <legend>Información del Posteo</legend>
+            <div class="campoFormulario">
+                <label for="titulo">Titulo del Posteo:</label>
+                {{ formulario.titulo }}
+            </div>
+            <div class="campoFormulario">
+                <label for="autor">Nombre del Autor:</label>
+                {{ formulario.autor }}
+            </div>
+            <div class="campoFormulario">
+                <label for="texto">Contenido del blog:</label>
+                {{ formulario.texto }}
+            </div>
+            <div class="campoFormulario">
+                <label for="fecha_post">Fecha de publicación:</label>
+                {{ formulario.fecha_post }}
+            </div>
+        </fieldset>
+        <input type="submit" value="Publicar Post" class="botonEnviar">
     </form>
 </body>
 </html>
