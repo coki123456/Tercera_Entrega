@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Bienvenido al Blog</title>
+    <title>Página de Inicio</title>
     <style>
         body {
             background-color: #f0f0f0;
@@ -29,7 +29,7 @@
 </head>
 <body>
     <header>
-        <h1>Bienvenido a Nuestra Página</h1>
+        <h1>Posteos</h1>
     </header>
 
     <nav>
@@ -39,6 +39,19 @@
         <a href="{% url 'crear_posteo' %}">Crear Posteos</a>
         <p>-------------------------------------------------------</p>
     </nav>
+    <section>
+
+        <p>-------------------------------------------------------</p>
+                    
+        {% for post in posteos %}
+        <article>
+            <h2>Titulo: {{post.titulo}}</h2>
+            <footer>Autor: {{post.autor}}</footer>
+            <p>Contenido: {{post.texto}}</p>
+        <p>-------------------------------------------------------</p>
+        </article>
+        {% endfor %}
+    </section>
 
 </body>
 </html>

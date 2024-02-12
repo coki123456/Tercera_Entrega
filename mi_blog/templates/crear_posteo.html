@@ -31,7 +31,6 @@
     <header>
         <h1>Bienvenido a Nuestra Página</h1>
     </header>
-
     <nav>
         <p>-------------------------------------------------------</p>
         <a href="{% url 'pag_principal' %}">Inicio</a>
@@ -39,6 +38,20 @@
         <a href="{% url 'crear_posteo' %}">Crear Posteos</a>
         <p>-------------------------------------------------------</p>
     </nav>
+    <title>Crear un post</title>
 
+<body>
+    <h1>Crear un nuevo post</h1>
+
+    <!-- Formulario para crear un nuevo post -->
+    <form id="crearPost">
+        <label for="titulo">Título:</label><br>
+        <input type="text" id="titulo" name="titulo"><br>
+        <label for="autor">Autor:</label><br>
+        <input type="text" id="autor" name="autor"><br>
+        <label for="texto">Texto:</label><br>
+        <textarea id="texto" name="texto"></textarea><br>
+        <input type="submit" value="Crear post">
+    </form>
 </body>
 </html>
