@@ -1,8 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html style="background-color: #333;">
 <head>
-    <title>Bienvenido al Blog</title>
+    <title>Blog by Alvarez Farhat Esteban</title>
     <style>
+        body {
+            background-color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        ul.menu {
+                list-style-type: none;
+                margin: auto;
+                padding: 0;
+                overflow: hidden;
+                border: double;
+                background-color: #333;
+                }
+
+        ul.menu li  {
+                    float: left;
+                    }
+
+        ul.menu li a {
+                    display: block;
+                    color: white;
+                    text-align: center;
+                    padding: 14px 16px;
+                    text-decoration: none;
+                    }
+
+        ul.menu li a:hover {
+                            background-color: #111;
+                        }
+
         .miFormulario {
             width: 100%;
             max-width: 600px;
@@ -39,6 +76,7 @@
             border: 1px solid #ddd;
             border-radius: 3px;
             font-size: 1em;
+            resize: none;
         }
         
         .botonEnviar {
@@ -57,16 +95,6 @@
             background-color: #0056b3;
         }
         
-        body {
-            background-color: #f0f0f0;
-            font-family: Arial, sans-serif;
-        }
-        header {
-            background-color: #333;
-            color: white;
-            padding: 10px;
-            text-align: center;
-        }
         nav {
             margin: 15px 0;
             text-align: center;
@@ -79,22 +107,17 @@
         nav a:hover {
         color: #f30;
         }
-    </style>    
+    </style>
 </head>
-<body>
+<body style="background-color: #333;">
     <header>
-        <h1>Bienvenido a Nuestra Página</h1>
+        <h1>Bienvenido a mi blog</h1>
     </header>
-    <nav>
-        <p>-------------------------------------------------------</p>
-        <a href="{% url 'pag_principal' %}">Inicio</a>
-        <a href="{% url 'posteos' %}">Posteos</a>
-        <a href="{% url 'crear_posteo' %}">Crear Posteos</a>
-        <p>-------------------------------------------------------</p>
-    </nav>
-    <title>Crear un post</title>
-
-<body>
+    <ul class="menu">
+        <li><a href="{% url 'pag_principal' %}">INICIO</a></li>
+        <li><a href="{% url 'crear_posteo' %}">PUBLICAR POSTEOS</a></li>
+        <li><a href="{% url 'posteos' %}">POSTEOS</a></li>
+    </ul><br><br>
     <form action="{% url 'crear_posteo' %}" method="POST" class="miFormulario">
         {% csrf_token %}
         <fieldset>
@@ -116,7 +139,7 @@
                 {{ formulario.fecha_post }}
             </div>
         </fieldset>
-        <input type="submit" value="Publicar Post" class="botonEnviar">
+        <input type="submit" value="Publicar Posteo" class="botonEnviar">
     </form>
 </body>
 </html>

@@ -1,57 +1,116 @@
 <!DOCTYPE html>
-<html>
+<html style="background-color: #333;">
 <head>
-    <title>Página de Inicio</title>
+    <title>Blog by Alvarez Farhat Esteban</title>
     <style>
         body {
-            background-color: #f0f0f0;
+            background-color: #fff;
             font-family: Arial, sans-serif;
-        }
+            }
+
         header {
             background-color: #333;
             color: white;
             padding: 10px;
             text-align: center;
-        }
+            }
+        
+        ul.menu {
+                list-style-type: none;
+                margin: auto;
+                padding: 0;
+                overflow: hidden;
+                border: double;
+                background-color: #333;
+                }
+
+        ul.menu li  {
+                    float: left;
+                    }
+
+        ul.menu li a {
+                    display: block;
+                    color: white;
+                    text-align: center;
+                    padding: 14px 16px;
+                    text-decoration: none;
+                    }
+
+        ul.menu li a:hover {
+                            background-color: #111;
+                        }
+        .miFormulario {
+            width: 80%;
+            text-margin:center;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 5px;
+            }
+        
+        .miFormulario fieldset {
+            border: none;
+            margin-bottom: 20px;
+            background-color: #333;
+            }
+        
+        .miFormulario legend {
+            color: #f0f0f0; 
+            font-family: Arial, sans-serif;
+            font-size: 25px;
+            text-align: center;
+            text-transform: uppercase;
+            }
+
+        .miFormulario2 {
+            width: 80%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            }
         nav {
             margin: 15px 0;
             text-align: center;
-        }
+            }
         nav a {
             margin: 0 10px;
             color: #06f;
             text-decoration: none;
-        }
+            }
         nav a:hover {
             color: #f30;
-        }
+            }
     </style>
 </head>
-<body>
+<body style="background-color: #333;">
     <header>
-        <h1>Posteos</h1>
+        <h1>Bienvenido a mi blog</h1>
     </header>
-
-    <nav>
-        <p>-------------------------------------------------------</p>
-        <a href="{% url 'pag_principal' %}">Inicio</a>
-        <a href="{% url 'posteos' %}">Posteos</a>
-        <a href="{% url 'crear_posteo' %}">Crear Posteos</a>
-        <p>-------------------------------------------------------</p>
-    </nav>
+    <ul class="menu">
+        <li><a href="{% url 'pag_principal' %}">INICIO</a></li>
+        <li><a href="{% url 'crear_posteo' %}">PUBLICAR POSTEOS</a></li>
+        <li><a href="{% url 'posteos' %}">POSTEOS</a></li>
+    </ul><br><br>
+    <form class="miFormulario">
     <section>
-
-        <p>-------------------------------------------------------</p>
-                    
-        {% for post in posteos %}
-        <article>
-            <h2>Titulo: {{post.titulo}}</h2>
-            <footer>Autor: {{post.autor}}</footer>
-            <p>Contenido: {{post.texto}}</p>
-        <p>-------------------------------------------------------</p>
-        </article>
-        {% endfor %}
+        <fieldset class="miFormulario">
+            <legend>POSTEOS</legend>
+                                
+            {% for post in posteos %}
+                <div class="miFormulario2">
+                    <article>
+                        <h2>Titulo: {{post.titulo}}</h2><br>
+                        <p>Contenido: {{post.texto}}</p><br>
+                        <footer>Autor: {{post.autor}}</footer>
+                    </article>
+                </div><br>
+            {% endfor %}
+        </fieldset>
     </section>
-
+    </form>
 </body>
 </html>

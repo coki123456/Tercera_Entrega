@@ -1,44 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html style="background-color: #333;">
 <head>
-    <title>Bienvenido al Blog</title>
+    <title>Blog by Alvarez Farhat Esteban</title>
     <style>
         body {
-            background-color: #f0f0f0;
+            background-color: #fff;
             font-family: Arial, sans-serif;
-        }
+            }
         header {
             background-color: #333;
             color: white;
             padding: 10px;
             text-align: center;
-        }
-        nav {
-            margin: 15px 0;
-            text-align: center;
-        }
-        nav a {
-            margin: 0 10px;
-            color: #06f;
-            text-decoration: none;
-        }
-        nav a:hover {
-            color: #f30;
-        }
-    </style>
+            }
+        ul.menu {
+                list-style-type: none;
+                margin: auto;
+                padding: 0;
+                overflow: hidden;
+                border: double;
+                background-color: #333;
+                }
+
+        ul.menu li  {
+                    float: left;
+                    }
+
+        ul.menu li a {
+                    display: block;
+                    color: white;
+                    text-align: center;
+                    padding: 14px 16px;
+                    text-decoration: none;
+                    }
+
+        ul.menu li a:hover {
+                        background-color: #111;
+                        }
+        fieldset{
+            border: none;
+            margin-bottom: 20px;
+            background-color: #333;
+    
+            }
+        .campoFormulario{
+            width: 80%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+    
+            }
+                    </style>
 </head>
-<body>
+<body style="background-color: #333;">
     <header>
-        <h1>Bienvenido a Nuestra Página</h1>
+        <h1>Bienvenido a mi blog</h1>
     </header>
-
-    <nav>
-        <p>-------------------------------------------------------</p>
-        <a href="{% url 'pag_principal' %}">Inicio</a>
-        <a href="{% url 'posteos' %}">Posteos</a>
-        <a href="{% url 'crear_posteo' %}">Crear Posteos</a>
-        <p>-------------------------------------------------------</p>
-    </nav>
-
+    <ul class="menu">
+        <li><a href="{% url 'pag_principal' %}">INICIO</a></li>
+        <li><a href="{% url 'crear_posteo' %}">PUBLICAR POSTEOS</a></li>
+        <li><a href="{% url 'posteos' %}">POSTEOS</a></li>
+    </ul><br><br>
+    <fieldset>
+        <div class="campoFormulario">
+            <text>Hola bienvenido a mi primera pagina, la cual sera un blog.</text>
+        </div>
+    </fieldset>
 </body>
 </html>
